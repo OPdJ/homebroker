@@ -8,6 +8,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\FormOrdemType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -17,6 +18,13 @@ class LoginController extends Controller
      * @Route("/log", name="login")
      */
     public function loginAction() {
-        return $this->render('default/form-compra-venda.html.twig');
+        $form = $this->createForm(FormOrdemType::class);
+
+
+        return $this->render('default/form-compra-venda.html.twig',
+            array(
+                'form' => $form->createView(),
+            )
+        );
     }
 }

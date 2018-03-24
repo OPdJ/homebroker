@@ -11,3 +11,10 @@
 /bin/
 composer.phar
 app/cache/dev/appDevDebugProjectContainer.xml
+app/cache/dev/appDevDebugProjectContainer.php.meta
+app/cache/dev/classes.map
+app/cache/dev/appDevDebugProjectContainerCompiler.log
+app/cache/dev/appDevDebugProjectContainer.xml
+app/cache/dev/appDevDebugProjectContainer.php.meta
+app/logs/dev.log
+app/logs/dev.log
