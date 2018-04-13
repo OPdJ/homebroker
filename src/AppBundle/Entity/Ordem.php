@@ -35,7 +35,26 @@ class Ordem implements \JsonSerializable {
     private $quantidade;
     /** @ORM\Column(type="decimal", scale=2) */
     private $totalOrdem;
+    
+    /** @ORM\Column(type="boolean") */
+    private $statusOrdem;
 
+    /**
+     * Specify data which should be serialized to JSON
+     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by <b>json_encode</b>,
+     * which is a value of any type other than a resource.
+     * @since 5.4.0
+     */
+    function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'preco' => $this->getPreco(),
+            'quantidade' => $this->getQuantidade(),
+            'tipoAtivo ' => $this->getTipoAtivo()
+        ];
+    }
 
     /**
      * Get id
@@ -209,19 +228,25 @@ class Ordem implements \JsonSerializable {
     }
 
     /**
-     * Specify data which should be serialized to JSON
-     * @link http://php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed data which can be serialized by <b>json_encode</b>,
-     * which is a value of any type other than a resource.
-     * @since 5.4.0
+     * Set statusOrdem
+     *
+     * @param boolean $statusOrdem
+     * @return Ordem
      */
-    function jsonSerialize()
+    public function setStatusOrdem($statusOrdem)
     {
-        return [
-            'id' => $this->getId(),
-            'preco' => $this->getPreco(),
-            'quantidade' => $this->getQuantidade(),
-            'tipoAtivo ' => $this->getTipoAtivo()
-        ];
+        $this->statusOrdem = $statusOrdem;
+
+        return $this;
+    }
+
+    /**
+     * Get statusOrdem
+     *
+     * @return boolean 
+     */
+    public function getStatusOrdem()
+    {
+        return $this->statusOrdem;
     }
 }

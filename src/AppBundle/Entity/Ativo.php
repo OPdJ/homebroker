@@ -26,12 +26,15 @@ class Ativo
 
     /** @ORM\Column(type="string") */
     private $sigla;
+    
+    /** @ORM\Column(type="datetime") */
+    private $dataInclusao;
 
-    /** @ORM\Column(type="integer") */
-    private $tipo;
-
-    /** @ORM\Column(type="string") */
-    private $mercado;
+    /** @ORM\Column(type="decimal") */
+    private $precoInclusao;
+    
+    /** @ORM\Column(type="decimal", scale=2) */
+    private $precoAtual;
 
     /**
      * Get id
@@ -90,48 +93,71 @@ class Ativo
     }
 
     /**
-     * Set tipo
+     * Set dataInclusao
      *
-     * @param integer $tipo
+     * @param \DateTime $dataInclusao
      * @return Ativo
      */
-    public function setTipo($tipo)
+    public function setDataInclusao($dataInclusao)
     {
-        $this->tipo = $tipo;
+        $this->dataInclusao = $dataInclusao;
 
         return $this;
     }
 
     /**
-     * Get tipo
+     * Get dataInclusao
      *
-     * @return integer 
+     * @return \DateTime 
      */
-    public function getTipo()
+    public function getDataInclusao()
     {
-        return $this->tipo;
+        return $this->dataInclusao;
     }
 
     /**
-     * Set mercado
+     * Set precoInclusao
      *
-     * @param string $mercado
+     * @param string $precoInclusao
      * @return Ativo
      */
-    public function setMercado($mercado)
+    public function setPrecoInclusao($precoInclusao)
     {
-        $this->mercado = $mercado;
+        $this->precoInclusao = $precoInclusao;
 
         return $this;
     }
 
     /**
-     * Get mercado
+     * Get precoInclusao
      *
      * @return string 
      */
-    public function getMercado()
+    public function getPrecoInclusao()
     {
-        return $this->mercado;
+        return $this->precoInclusao;
+    }
+
+    /**
+     * Set precoAtual
+     *
+     * @param string $precoAtual
+     * @return Ativo
+     */
+    public function setPrecoAtual($precoAtual)
+    {
+        $this->precoAtual = $precoAtual;
+
+        return $this;
+    }
+
+    /**
+     * Get precoAtual
+     *
+     * @return string 
+     */
+    public function getPrecoAtual()
+    {
+        return $this->precoAtual;
     }
 }
