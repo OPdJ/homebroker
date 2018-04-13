@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Service\OrdemService;
+use AppBundle\Utils\OrdemTipo;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -13,13 +14,15 @@ class DefaultController extends Controller
     */
   public function index(){
       /** @var OrdemService $ordemController */
-      $ordemController = $this->container->get('app.ordem_service');
-      $ordensCompra = $ordemController->getListOrdensForTipo();
-      $ordensVenda = $ordemController->getListOrdensForTipo(2);
+      $ordemService = $this->container->get('app.ordem_service');
+      $ordens = $ordemService->getListOrdens();
+      $ordensCompra = $ordemService->getListOrdensForTipo(OrdemTipo::COMPRA);
+      $ordensVenda = $ordemService->getListOrdensForTipo(OrdemTipo::VENDA);
 
       return $this->render('default/index.html.twig', [
           'ordensCompra' => $ordensCompra,
-          'ordensVenda' => $ordensVenda
+          'ordensVenda' => $ordensVenda,
+          'ordens'      => $ordens
       ]);
   }
 }

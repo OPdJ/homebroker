@@ -10,6 +10,7 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Ordem;
+use AppBundle\Utils\OrdemStatus;
 use AppBundle\Form\FormOrdemType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -32,6 +33,8 @@ class OrdemController extends Controller {
             if($ordem->getPreco() > 0 && $ordem->getQuantidade() > 0 ){
                 $totalOrdem = $ordem->getPreco() * $ordem->getQuantidade();
                 $ordem->setTotalOrdem($totalOrdem);
+                $ordem->setStatusOrdem(OrdemStatus::PENDENTE);
+
             }
 
             $em = $this->getDoctrine()->getEntityManager();
@@ -39,7 +42,6 @@ class OrdemController extends Controller {
             $em->flush();
 
             return $this->redirectToRoute('home');
-            //return new Response('Created product id '.$ordem->getId());
         }
 
         return $this->render("Forms/form-ordem.html.twig", [

@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\Utils\OrdemTipo;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -12,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 
-class FormOrdemType extends AbstractType {
+class FormAtivoType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -22,15 +21,15 @@ class FormOrdemType extends AbstractType {
                     'required' => true,
                     'expanded' => true,
                     'choices'  => array(
-                        OrdemTipo::COMPRA => OrdemTipo::COMPRA_LABEL,
-                        OrdemTipo::VENDA => OrdemTipo::VENDA_LABEL
+                        '1' => 'Comprar',
+                        '2' => 'Vender'
                     ),
                     'attr' => array(
                         'class' => 'form-check',
                     )
                 )
             )
-            ->add('ativo', ChoiceType::class,
+            ->add('tipoAtivo', ChoiceType::class,
                 array(
                     'label' => 'Ativo',
                     'required' => false,
@@ -45,27 +44,22 @@ class FormOrdemType extends AbstractType {
                     )
                 )
             )
-            ->add('quantidade', NumberType::class,
+            /*
+            ->add('validade', ChoiceType::class,
                 array(
-                    'label' => 'Quatidade',
-                    'required' => true,
-                    'attr' => array(
-                        'placeholder' => '0',
-                        'class' => 'form-control',
-                        'required' => true,
-                    )
-                )
-            )
-            ->add('precoDeMercado', CheckboxType::class,
-                array(
-                    'label' => 'Marque para comprar no preço de mercado',
+                    'label' => 'Validade',
                     'required' => false,
-                    'mapped' => false,
+                    'choices'  => array(
+                        '' => null,
+                        'DayTrade' => 'daytrade',
+                        'Intraday' => 'intraday',
+                        'Long' => 'long',
+                    ),
                     'attr' => array(
                         'class' => 'form-control',
                     )
                 )
-            )
+            )*/
             ->add('preco', MoneyType::class,
                 array(
                     'label' => 'Preço ',
@@ -73,6 +67,26 @@ class FormOrdemType extends AbstractType {
                     'currency' => 'BRL',
                     'attr' => array(
                         'placeholder' => 'preço',
+                        'class' => 'form-control',
+                        'required' => true,
+                    )
+                )
+            )
+            ->add('precoMercado', CheckboxType::class,
+                array(
+                    'label' => 'Marque para comprar no preço de mercado',
+                    'required' => false,
+                    'attr' => array(
+                        'class' => 'form-control',
+                    )
+                )
+            )
+            ->add('quantidade', NumberType::class,
+                array(
+                    'label' => 'Quatidade',
+                    'required' => true,
+                    'attr' => array(
+                        'placeholder' => '0',
                         'class' => 'form-control',
                         'required' => true,
                     )

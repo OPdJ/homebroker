@@ -9,7 +9,7 @@
 
   <div class="row">
     <!-- compra -->
-    <div class="col-6">
+    <div class="col-4">
       <table class="table table-hover table-dark">
         <thead>
             <tr>
@@ -24,7 +24,7 @@
         <tbody>
         {% for ordem in ordensCompra %}
           <tr>
-            <th scope="row" class="text-center">{{ ordem.tipoAtivo }}</th>
+            <th scope="row" class="text-center">{{ ordem.ativo }}</th>
             <td scope="row" class="text-center">{{ ordem.quantidade }}</td>
             <td scope="row" class="text-center">{{ ordem.preco|number_format(2, ',', '.') }}</td>
           </tr>
@@ -34,7 +34,7 @@
     </div>
     
     <!-- venda -->
-    <div class="col-6">
+    <div class="col-4">
       <table class="table table-hover table-dark">
         <thead>
             <tr>
@@ -49,7 +49,34 @@
         <tbody>
         {% for ordem in ordensVenda %}
           <tr>
-            <th scope="row" class="text-center">{{ ordem.tipoAtivo }}</th>
+            <th scope="row" class="text-center">{{ ordem.ativo }}</th>
+            <td scope="row" class="text-center">{{ ordem.quantidade }}</td>
+            <td scope="row" class="text-center">{{ ordem.preco|number_format(2, ',', '.') }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+        </div>
+
+    <!-- ordens -->
+    <div class="col-4">
+      <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col" colspan="3" class="text-center">Ordens</th>
+            </tr>  
+          <tr>
+            <th scope="col" class="text-center">Tipo</th>
+            <th scope="col" class="text-center">Ativ.</th>
+            <th scope="col" class="text-center">Qtd.</th>
+            <th scope="col" class="text-center">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for ordem in ordens %}
+          <tr>
+            <td scope="row" class="text-center">{{ ordem.tipoOrdem == 1 ? 'Compra' : 'Venda' }}</td>
+            <td scope="row" class="text-center">{{ ordem.ativo }}</td>
             <td scope="row" class="text-center">{{ ordem.quantidade }}</td>
             <td scope="row" class="text-center">{{ ordem.preco|number_format(2, ',', '.') }}</td>
           </tr>

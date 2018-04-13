@@ -21,6 +21,7 @@ class Ativo
      * @ORM\Column(type="integer")
      */
     private $id;
+    
     /** @ORM\Column(type="string") */
     private $nome;
 
@@ -30,7 +31,7 @@ class Ativo
     /** @ORM\Column(type="datetime") */
     private $dataInclusao;
 
-    /** @ORM\Column(type="decimal") */
+    /** @ORM\Column(type="decimal", scale=2) */
     private $precoInclusao;
     
     /** @ORM\Column(type="decimal", scale=2) */

@@ -24,19 +24,14 @@ class Ordem implements \JsonSerializable {
     /** @ORM\Column(type="integer") */
     private $tipoOrdem;
     /** @ORM\Column(type="string") */
-    private $tipoAtivo;
+    private $ativo;
     /** @ORM\Column(type="string") */
-    private $validade;
-    /** @ORM\Column(type="decimal", scale=2) */
     private $preco;
-    /** @ORM\Column(type="boolean") */
-    private $precoMercado;
     /** @ORM\Column(type="integer") */
     private $quantidade;
     /** @ORM\Column(type="decimal", scale=2) */
     private $totalOrdem;
-    
-    /** @ORM\Column(type="boolean") */
+    /** @ORM\Column(type="string") */
     private $statusOrdem;
 
     /**
@@ -52,7 +47,7 @@ class Ordem implements \JsonSerializable {
             'id' => $this->getId(),
             'preco' => $this->getPreco(),
             'quantidade' => $this->getQuantidade(),
-            'tipoAtivo ' => $this->getTipoAtivo()
+            'ativo' => $this->getAtivo()
         ];
     }
 
@@ -90,49 +85,26 @@ class Ordem implements \JsonSerializable {
     }
 
     /**
-     * Set tipoAtivo
+     * Set ativo
      *
-     * @param string $tipoAtivo
+     * @param string $ativo
      * @return Ordem
      */
-    public function setTipoAtivo($tipoAtivo)
+    public function setAtivo($ativo)
     {
-        $this->tipoAtivo = $tipoAtivo;
+        $this->ativo = $ativo;
 
         return $this;
     }
 
     /**
-     * Get tipoAtivo
+     * Get ativo
      *
      * @return string 
      */
-    public function getTipoAtivo()
+    public function getAtivo()
     {
-        return $this->tipoAtivo;
-    }
-
-    /**
-     * Set validade
-     *
-     * @param string $validade
-     * @return Ordem
-     */
-    public function setValidade($validade)
-    {
-        $this->validade = $validade;
-
-        return $this;
-    }
-
-    /**
-     * Get validade
-     *
-     * @return string 
-     */
-    public function getValidade()
-    {
-        return $this->validade;
+        return $this->ativo;
     }
 
     /**
@@ -156,29 +128,6 @@ class Ordem implements \JsonSerializable {
     public function getPreco()
     {
         return $this->preco;
-    }
-
-    /**
-     * Set precoMercado
-     *
-     * @param boolean $precoMercado
-     * @return Ordem
-     */
-    public function setPrecoMercado($precoMercado)
-    {
-        $this->precoMercado = $precoMercado;
-
-        return $this;
-    }
-
-    /**
-     * Get precoMercado
-     *
-     * @return boolean 
-     */
-    public function getPrecoMercado()
-    {
-        return $this->precoMercado;
     }
 
     /**
@@ -230,7 +179,7 @@ class Ordem implements \JsonSerializable {
     /**
      * Set statusOrdem
      *
-     * @param boolean $statusOrdem
+     * @param string $statusOrdem
      * @return Ordem
      */
     public function setStatusOrdem($statusOrdem)
@@ -243,7 +192,7 @@ class Ordem implements \JsonSerializable {
     /**
      * Get statusOrdem
      *
-     * @return boolean 
+     * @return string 
      */
     public function getStatusOrdem()
     {
