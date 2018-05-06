@@ -39,89 +39,24 @@ class MenuNavigation
         $menuNav = [
 
             new MenuItem(
-                'Colaborador',
+                'Minha Conta',
                 '',
                 'fa fa-group fa-fw',
                 array(
-                    new MenuItem('Consultar', 'ordem-new'),
-                    new MenuItem('Cadastrar', 'ordem-new'),
+                    new MenuItem('Meus Ativos', 'ordem-new'),
+                    new MenuItem('Extrato Financeiro', 'ordem-new'),
+                    new MenuItem('Controle Patrimonial', 'ordem-new'),
                 )
 
             ),
             new MenuItem(
-                'Aluno',
+                'Operações',
                 '',
                 'fa fa-graduation-cap fa-fw',
                 array(
-                    new MenuItem('Consultar', 'ordem-new'),
-                    new MenuItem('Cadastrar', 'ordem-new')
-                )
-
-            ),
-            new MenuItem(
-                'Sala',
-                '',
-                'fa fa-home fa-fw',
-                array(
-                    new MenuItem('Consultar', 'ordem-new'),
-                    new MenuItem('Cadastrar', 'ordem-new'),
-                    new MenuItem(
-                        'Ocorrência',
-                        '',
-                        'fa fa-sitemap fa-fw',
-                        array(
-                            new MenuItem('Consultar', 'ordem-new'),
-                            new MenuItem('Cadastrar', 'ordem-new')
-                        )
-                    ),
-                )
-
-            ),
-            new MenuItem(
-                'Recursos Materiais',
-                '',
-                'fa fa-sitemap fa-fw',
-                array(
-                    new MenuItem('Consultar', 'ordem-new'),
-                    new MenuItem('Cadastrar', 'ordem-new')
-                )
-            ),
-            new MenuItem(
-                'Curso',
-                '',
-                'fa fa-university fa-fw',
-                array(
-                    new MenuItem('Consultar', 'ordem-new'),
-                    new MenuItem('Cadastrar', 'ordem-new'),
-                    new MenuItem(
-                        'Disciplina',
-                        '',
-                        'fa fa-book fa-fw',
-                        array(
-                            new MenuItem('Consultar', 'ordem-new'),
-                            new MenuItem('Cadastrar', 'ordem-new')
-                        )
-
-                    ),
-                )
-            ),
-            new MenuItem(
-                'Turma',
-                '',
-                'fa fa-users fa-fw',
-                array(
-                    new MenuItem('Consultar', 'ordem-new'),
-                    new MenuItem('Cadastrar', 'ordem-new'),
-                    new MenuItem(
-                        'Alunos',
-                        '',
-                        'fa fa-graduation-cap fa-fw',
-                        array(
-                            new MenuItem('Consultar', 'ordem-new'),
-                            new MenuItem('Cadastrar', 'ordem-new')
-                        )
-
-                    ),
+                    new MenuItem('Renda Variável', 'ordem-new'),
+                    new MenuItem('Renda Fixa', 'ordem-new'),
+                    new MenuItem('Ordens', 'ordem-new')
                 )
 
             ),
