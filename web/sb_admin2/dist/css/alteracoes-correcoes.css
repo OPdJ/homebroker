@@ -1,0 +1,43 @@
+/* adicionado por mim */
+footer.sticky-footer {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 56px;
+    background-color: #e9ecef;
+    line-height: 55px;
+}
+
+/* Correção para link do head do painel */
+div.panel > .panel-heading > a.btn {
+    position: relative;
+    top: -7px;
+    margin-left: 5px;
+}
+
+/* Correção para botão do modal dentro head do painel */
+div.panel > .panel-heading > button#buttonModal {
+    position: relative;
+    top: -7px;
+    right: 5px;
+}
+
+div.panel > .panel-body .table div.btn-group>a {
+    margin: 3px;
+}
+
+div.panel > .panel-body .table div.btn-group>a:hover {
+    text-decoration: none;
+}
+
+/* forma de exibição de tabela de um registro */
+table.table-view>tbody>tr>td {
+    border-top: none;
+}
+
+/* correções para tabs com painel */
+div.tab-view > div.tab-pane > .panel {
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+}

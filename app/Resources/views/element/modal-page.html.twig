@@ -1,0 +1,35 @@
+<!-- Button trigger modal -->
+<a id="buttonModal"
+   href="{% block modal_button_click_path %}#{% endblock %}"
+   class="btn btn-primary {% block button_align %}pull-right{% endblock %}" data-toggle="modal" data-target="#modal">
+    {% block modal_button_click_title %}Click Modal{% endblock %}
+</a>
+<!-- Button trigger modal -->
+
+<!-- modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="modalLabel">{% block modal_title %}Modal title{% endblock %}</h4>
+            </div>
+            <div class="modal-body">
+                {% block modal_body %}
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {% endblock %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    {% block modal_button_close_title %}Close{% endblock %}
+                </button>
+                <button type="button" class="btn btn-primary">
+                    {% block modal_button_save_title %}Save changes{% endblock %}
+                </button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- modal -->

@@ -1,0 +1,42 @@
+<table width="100%"
+       class="{{ table.class }}"
+       {% if table.type == constant('DATA_TABLE', table) %} id="dataTables-example" {% endif %}>
+    <thead>
+    <tr>
+        {% for column in table.columns %}
+            <th scope="col">{{ column.name }}</th>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tbody>
+    {% if table.rows|length > 0 %}
+        {% for row in table.rows %}
+            <tr>
+                <td>{{ row.id }}</td>
+                {% for field  in table.fields %}
+                    <td>{{ attribute(row, field) }}</td>
+                {% endfor %}
+                <td>
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                            <a href="{{ path(table.paths.edit, { 'id': row.id }) }}">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="{{ attribute(table.paths, 'view') is defined ? path(table.paths.view, { 'id': row.id }): '#' }}">
+                                <i class="fa fa-eye"></i>
+                            </a>
+                            <a href="{{ path(table.paths.delete, { 'id': row.id }) }}">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr>
+            <td colspan="{{ (table.columns|length) }}">{{ table.msgNotFoundResults }}</td>
+        </tr>
+    {% endif %}
+    </tbody>
+</table>

@@ -1,0 +1,44 @@
+<!-- menu navigation -->
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <!-- usando uma variavél global para renderizar o menu -->
+            {% for item in app_menu_nav.menuNav %}
+            <li>
+                <a href="{{ ('#' in item.path) ? '#' : path(item.path) }}">
+                    <i class="{{ item.icon }}"></i>
+                    {{ item.name }}
+                    {% if item.hasOptions %}<span class="fa arrow"></span>{% endif %}
+                </a>
+                {% if item.hasOptions %}
+                <ul class="nav nav-second-level">
+                    {% for second in item.options %}
+                        <li>
+                            <a href="{{ ('#' in second.path) ? '#' : path(second.path) }}">
+                                {% if second.hasOptions %}<i class="{{ second.icon }}"></i></span>{% endif %}
+                                {{ second.name }}
+                                {% if second.hasOptions %}<span class="fa arrow"></span>{% endif %}
+                            </a>
+                            {% if second.hasOptions %}
+                            <ul class="nav nav-third-level">
+                                {% for third in second.options %}
+                                    <li>
+                                        <a href="{{ ('#' in third.path) ? '#' : path(third.path) }}">{{ third.name }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <!-- /.nav-third-level -->
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <!-- /.nav-second-level -->
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+<!-- /.navbar-static-side -->
+<!-- menu navigation -->

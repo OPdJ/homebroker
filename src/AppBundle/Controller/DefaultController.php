@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
   /**
-    * @Route("/", name="home")
+    * @Route("/", name="homepage")
     */
   public function index(){
       /** @var OrdemService $ordemController */

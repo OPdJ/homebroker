@@ -1,0 +1,11 @@
+<div class="panel {{ panel.class }}">
+    <div class="panel-heading">
+        {{ table.msgNotFoundResults|default("Title") }}
+        {% block panel_actions %}{% endif %}
+        {#<a href="{{ path(table.path.insert) }}"#}
+        {#class="btn btn-primary pull-right">Inserir</a>#}
+    </div>
+    <div class="panel-body">
+        {% block panel_body %}{% endif %}
+    </div>
+</div>
