@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block conteudo %}
+    {#tabela de consulta#}
+    {% include 'element/tabela-responsiva.html.twig' with {'table': table} %}
+    {#{% include 'element/table/table.html.twig' with {'table': table} %}#}
+{% endblock %}

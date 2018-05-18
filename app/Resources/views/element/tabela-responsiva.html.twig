@@ -1,0 +1,13 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {{ table.msgNotFoundResults|default("Title") }}
+        {#<a href="{{ path(table.path.insert) }}"#}
+           {#class="btn btn-primary pull-right">Inserir</a>#}
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <!-- /.table-responsive -->
+        {% include ':element/table:table.html.twig' with {'table': table} %}
+        <!-- /.table-responsive -->
+    </div>
+</div>

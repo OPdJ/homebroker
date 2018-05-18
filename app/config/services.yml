@@ -8,6 +8,10 @@ services:
     #    class: AppBundle\Directory\ClassName
     #    arguments: ['@another_service_name', 'plain_value', '%parameter_name%']
 
+    app.menu.nav:
+          class: AppBundle\Utils\html\navigation\MenuNavigation
+          arguments: []
+
     app.ordem_service:
         class:     AppBundle\Service\OrdemService
         arguments: ["@doctrine.orm.entity_manager"]

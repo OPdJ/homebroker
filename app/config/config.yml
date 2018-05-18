@@ -34,6 +34,10 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        app_name: HomeBroker
+        welcome_title: Welcome!
+        app_menu_nav: '@app.menu.nav'
 
 # Doctrine Configuration
 doctrine:

@@ -1,0 +1,155 @@
+{% extends 'base.html.twig' %}
+
+{#{% form_theme form 'bootstrap_3_layout.html.twig'  %}#}
+{#{% form_theme form 'temas/form-theme.html.twig' %}#}
+
+{% block conteudo %}
+
+{% set entity = tableView.entity %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        {{ tableView.title }}
+        <a href="{{ path(tableView.paths.edit, {id: entity.id}) }}"
+           class="btn btn-primary pull-right">Editar</a>
+
+        <a href="{{ path('sala-recurso-alocar', {id: entity.id}) }}"
+           class="btn btn-primary pull-right">Alocar Recurso</a>
+
+        {% embed 'element/modal-page.html.twig' %}
+            {% block title_modal %}You OK{% endblock %}
+            {% block body_modal %}
+                blsfjlkdsjflsdf
+                fjsdjflsdfjdsfd
+                jfsdjflsdkfds
+                jdkfjkldsjk
+
+            {% endblock %}
+        {% endembed %}
+
+        {#{% embed 'element/modal-page.html.twig'%}#}
+            {#{% block body_modal %}#}
+                {#{% if form is defined %}#}
+                    {#{% include 'forms/form-adicionar-recurso-sala.html.twig' with {'form': form} %}#}
+                {#{% endif %}#}
+            {#{% endblock %}#}
+            {#{% block button_align %}pull-right{% endblock %}#}
+            {#{% block title_modal %}Alocar Recursos{% endblock %}#}
+            {#{% block name_button_click_modal %}Alocar Recurso{% endblock %}#}
+            {#{% block name_button_close %}Fechar{% endblock %}#}
+            {#{% block name_button_save %}Salvar{% endblock %}#}
+        {#{% endembed %}#}
+
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        {#linha#}
+        <div class="row">
+
+            <div class="col-lg-6">
+                <table class="table-view table table-responsive table-striped" style="">
+                    <tbody>
+                        {% for key,field in tableView.fields %}
+                        <tr>
+                            <td>
+                                <h5 style="font-weight: bold;">
+                                    {{ field }}
+                                </h5>
+                            </td>
+                            <td>
+                                <p class="form-control-static">{{ attribute(entity, key) }}</p>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {#end linha#}
+    </div>
+    <!-- /.panel-body -->
+</div>
+<!-- /.panel -->
+<br />
+{#Nav Tabs#}
+<div class="row">
+    <div class="col-lg-12">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="#recurso_materiais" aria-controls="recurso_materiais" role="tab" data-toggle="tab">Recursos Alocados</a>
+            </li>
+            <li role="presentation">
+                <a href="#ocorrencias_sala" aria-controls="ocorrencias_sala" role="tab" data-toggle="tab">Ocorrências da Sala</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content tab-view">
+
+            <div role="tabpanel" class="tab-pane active" id="recurso_materiais">
+                <div class="panel panel-default">
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <br />
+                        <table class="table-view table table-responsive table-striped" style="">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Recurso</th>
+                                <th>Desalocar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for recurso in recursos %}
+                                <tr>
+                                    <td>
+                                        {{ recurso.id }}
+                                    </td>
+                                    <td>
+                                        {{ recurso.nome }}
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <a href="{{ path('recursos-desalocar', { 'id': recurso.id }) }}">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+
+
+            <!-- Ocorrências Sala -->
+            <div role="tabpanel" class="tab-pane" id="ocorrencias_sala">
+                <div class="panel panel-default">
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <table class="table-view table table-responsive table-striped">
+                            <tbody>
+                            {% for key,field in tableView.fields %}
+                                <tr>
+                                    <td>
+                                        <h5 style="font-weight: bold;">
+                                            {{ field }}
+                                        </h5>
+                                    </td>
+                                    <td>
+                                        <p class="form-control-static">{{ attribute(entity, key) }}</p>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
