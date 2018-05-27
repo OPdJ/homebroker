@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block conteudo %}
+<ul>
+{% for ordem in ordens %}
+  <li>{{ ordem.tipoOrdem }}</li>
+{% endfor %}
+</ul>  
+{% endblock %}

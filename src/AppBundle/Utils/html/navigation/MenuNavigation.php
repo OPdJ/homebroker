@@ -46,6 +46,7 @@ class MenuNavigation
                     new MenuItem('Meus Ativos', 'ordem-new'),
                     new MenuItem('Extrato Financeiro', 'ordem-new'),
                     new MenuItem('Controle Patrimonial', 'ordem-new'),
+                    new MenuItem('Historico', 'historico'),
                 )
 
             ),
